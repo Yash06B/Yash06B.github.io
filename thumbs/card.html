@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;width:1000px;height:750px;overflow:hidden}
+body{background:#fbfaf7;font-family:Inter,system-ui,sans-serif;color:#17171a;display:flex}
+.card{margin:48px;flex:1;border-radius:28px;background:#fff;border:2px solid #e4e1d9;padding:56px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.tag{font:500 20px "JetBrains Mono",monospace;color:#2f5bd3;letter-spacing:.04em}
+h1{font-size:60px;line-height:1.05;letter-spacing:-.03em;margin:18px 0 14px;font-weight:800}
+p{font-size:25px;color:#5d5d66;margin:0;line-height:1.4;max-width:760px}
+.stats{margin-top:auto;display:flex;gap:56px}
+.stat b{display:block;font-size:64px;letter-spacing:-.03em;font-weight:800;color:#2f5bd3}
+.stat span{font-size:21px;color:#5d5d66}
+.accent{position:absolute;right:-110px;bottom:-110px;width:320px;height:320px;border-radius:50%;background:#e7edfc;z-index:0}
+.card>*:not(.accent){position:relative;z-index:1}
+.stats{align-items:flex-end}
+</style></head>
+<body><div class="card"><div class="accent"></div>
+<div class="tag" id="tag"></div><h1 id="t"></h1><p id="d"></p>
+<div class="stats" id="s"></div></div>
+<script>
+const P={
+ askdocs:{tag:"RAG · RETRIEVAL · EVALUATION",t:"AskDocs",d:"Docs chatbot with cited answers over 155 pages of FastAPI documentation, tested on 150 questions.",s:[["96%","right passage in top 5"],["52→72%","top-1 from better chunking"]]},
+ slm:{tag:"FINE-TUNING · COST",t:"A 1.5B model that writes SQL",d:"QLoRA fine-tune of Qwen2.5-1.5B for text-to-SQL. Beats an untuned model twice its size, on a laptop.",s:[["32→62%","execution accuracy"],["$0","total cost"]]},
+ triage:{tag:"AGENTS · MCP",t:"GitHub issue triage agent",d:"Labels new issues and finds duplicates through its own MCP server. Benchmarked on real issues.",s:[["76.5%","label accuracy"],["120","real issues tested"]]},
+ gateway:{tag:"PRODUCTION · RELIABILITY",t:"LLM gateway",d:"OpenAI-compatible gateway with fallback routing, circuit breakers, a semantic cache and cost tracking.",s:[["70→100%","success during outage"],["5 ms","added overhead"]]}
+};
+const p=P[location.hash.slice(1)]||P.askdocs;
+tag.textContent=p.tag;t.textContent=p.t;d.textContent=p.d;
+s.innerHTML=p.s.map(([b,l])=>`<div class="stat"><b>${b}</b><span>${l}</span></div>`).join("");
+</script></body></html>
