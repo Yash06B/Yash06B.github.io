@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Docs assistant demo · Documenso</title>
+<style>
+:root{--bg:#fbfaf7;--text:#17171a;--muted:#5d5d66;--accent:#2f5bd3;--line:#e4e1d9}
+@media (prefers-color-scheme:dark){:root{--bg:#111114;--text:#ececef;--muted:#a0a0aa;--accent:#7f9ef5;--line:#2c2c33}}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:900px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:clamp(24px,4vw,34px);letter-spacing:-.02em;margin:0 0 8px}
+p{color:var(--muted);margin:0 0 16px}
+video{width:100%;border-radius:12px;border:1px solid var(--line);background:#000;margin:12px 0 20px}
+ul{color:var(--muted);padding-left:20px}
+a{color:var(--accent)}
+.note{font-size:13px;border-top:1px solid var(--line);padding-top:16px;margin-top:28px}
+</style>
+</head>
+<body>
+<main>
+  <h1>A docs assistant over the Documenso docs</h1>
+  <p>A short demo I built on Documenso's public documentation (143 pages), running fully locally on a laptop.</p>
+  <video src="documenso-demo.mp4" controls playsinline preload="metadata"></video>
+  <ul>
+    <li>Every answer cites the exact docs section it came from.</li>
+    <li>When the docs don't cover a question, it says so instead of guessing.</li>
+    <li>Runs on a local open model: no questions or docs are sent to any third-party AI provider.</li>
+  </ul>
+  <p>Built by <a href="https://yash06b.github.io">Yashowardhan Bhosale</a> · <a href="https://github.com/Yash06B/askdocs">AskDocs on GitHub</a> · <a href="mailto:yashowardhan.bhosale.01@gmail.com">yashowardhan.bhosale.01@gmail.com</a></p>
+  <p class="note">Independent demo, not affiliated with or endorsed by Documenso. Content comes from Documenso's public documentation.</p>
+</main>
+</body>
+</html>
